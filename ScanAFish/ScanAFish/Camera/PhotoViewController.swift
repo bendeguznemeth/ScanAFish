@@ -48,17 +48,10 @@ class PhotoViewController: UIViewController {
     }
 
     @IBAction func usePhoto(_ sender: UIButton) {
-        
-        self.view.bringSubview(toFront: blurView)
-        blurView.isHidden = false
-        
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = self.view.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        blurEffectView.tag = 100
-//        self.view.addSubview(blurEffectView)
-//        self.view.bringSubview(toFront: blurEffectView)
+        DispatchQueue.main.async {
+            self.blurView.isHidden = false
+            self.view.setNeedsDisplay()
+        }
         
         // Load default device.
         device = MTLCreateSystemDefaultDevice()

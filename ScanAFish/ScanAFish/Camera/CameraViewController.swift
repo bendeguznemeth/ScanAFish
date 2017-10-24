@@ -96,9 +96,9 @@ class CameraViewController: UIViewController, TakePhotoButtonDelegate, UIGesture
 				
                 case .notAuthorized:
                     DispatchQueue.main.async { [unowned self] in
-                        let changePrivacySetting = "AVCam doesn't have permission to use the camera, please change privacy settings"
+                        let changePrivacySetting = "ScanAFish doesn't have permission to use the camera, please change privacy settings"
                         let message = NSLocalizedString(changePrivacySetting, comment: "Alert message when the user has denied access to the camera")
-                        let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "ScanAFish", message: message, preferredStyle: .alert)
                         
                         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
                                                                 style: .cancel,
@@ -117,7 +117,7 @@ class CameraViewController: UIViewController, TakePhotoButtonDelegate, UIGesture
                     DispatchQueue.main.async { [unowned self] in
                         let alertMsg = "Alert message when something goes wrong during capture session configuration"
                         let message = NSLocalizedString("Unable to capture media", comment: alertMsg)
-                        let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "ScanAFish", message: message, preferredStyle: .alert)
                         
                         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
                                                                 style: .cancel,
@@ -648,8 +648,40 @@ class CameraViewController: UIViewController, TakePhotoButtonDelegate, UIGesture
     // MARK: Photo Library Button Action
     
     @IBAction func photoLibraryButtonTap(_ sender: UIButton) {
-        let myPhotosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: PhotosViewController.self)) as! PhotosViewController
-        self.present(myPhotosViewController, animated: true, completion: nil)
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+            let myPhotosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: PhotosViewController.self)) as! PhotosViewController
+            self.present(myPhotosViewController, animated: true, completion: nil)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({status in
+                if status == .authorized {
+                    let myPhotosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: PhotosViewController.self)) as! PhotosViewController
+                    self.present(myPhotosViewController, animated: true, completion: nil)
+                } else {
+                    self.photoLibraryAccessDenied()
+                }
+            })
+        default:
+            photoLibraryAccessDenied()
+        }
+    }
+    
+    private func photoLibraryAccessDenied() {
+        let changePrivacySetting = "ScanAFish doesn't have permission to access the Photo Library, please change privacy settings"
+        let message = NSLocalizedString(changePrivacySetting, comment: "Alert message when the user has denied access to the photo library")
+        let alertController = UIAlertController(title: "ScanAFish", message: message, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
+                                                style: .cancel,
+                                                handler: nil))
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"),
+                                                style: .`default`,
+                                                handler: { _ in
+                                                    UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func informationButtonTap(_ sender: UIButton) {

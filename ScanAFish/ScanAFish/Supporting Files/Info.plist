@@ -52,6 +52,6 @@
 		<true/>
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>to save photos to your Photo Library</string>
+	<string>to save photos to your Photo Library and access them</string>
 </dict>
 </plist>
