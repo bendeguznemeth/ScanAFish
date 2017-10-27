@@ -26,10 +26,10 @@ class PhotoViewController: UIViewController {
     
     var image: UIImage!
     
-    var image2: UIImage! {
+    var imageFromPhotoLibrary: UIImage! {
         didSet {
-            imageView.image = image2
-            image = image2
+            imageView.image = imageFromPhotoLibrary
+            image = imageFromPhotoLibrary
         }
     }
     
@@ -37,11 +37,6 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
         imageView.image = image
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        imageView.image = image
-//        super.viewWillAppear(animated)
-//    }
     
     @IBAction func cancel(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -86,7 +81,7 @@ class PhotoViewController: UIViewController {
         
         let myWebViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: WebViewController.self)) as! WebViewController
         
-        if image2 != nil {
+        if imageFromPhotoLibrary != nil {
             myWebViewController.isCameraButtonHidden = false
         }
         

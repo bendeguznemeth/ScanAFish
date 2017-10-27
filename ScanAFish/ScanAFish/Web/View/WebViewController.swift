@@ -31,7 +31,6 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         if Reachability.isConnectedToNetwork() {
             webView.uiDelegate = self
             webView.navigationDelegate = self
-//            webView.scrollView.bounces = false
             webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
             webView.load(requestGoogle)
         }

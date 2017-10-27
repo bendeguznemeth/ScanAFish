@@ -532,11 +532,8 @@
 		ED060CFE1F9A4E2200F94C32 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
-				ED060CF71F9A4D6600F94C32 /* CameraViewController.swift */,
-				ED060CF61F9A4D6500F94C32 /* PhotoCaptureProcessor.swift */,
-				ED060CF51F9A4D6500F94C32 /* PhotoViewController.swift */,
-				ED060CF81F9A4D6600F94C32 /* PreviewView.swift */,
-				ED060CF41F9A4D6500F94C32 /* TakePhotoButton.swift */,
+				ED25FF731FA3029E008991FC /* View */,
+				ED25FF721FA3028F008991FC /* Model */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -544,8 +541,7 @@
 		ED0FD3391F9E6F0B00F25C10 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				ED0FD3371F9E5E2F00F25C10 /* PhotosViewController.swift */,
-				ED0FD3351F9E5E2800F25C10 /* PhotoCollectionViewCell.swift */,
+				ED25FF741FA303A2008991FC /* View */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -553,9 +549,73 @@
 		ED0FD33C1F9E7A9D00F25C10 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				ED0FD33A1F9E719A00F25C10 /* FishSpeciesViewController.swift */,
+				ED25FF751FA303AF008991FC /* View */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		ED25FF721FA3028F008991FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED060CF61F9A4D6500F94C32 /* PhotoCaptureProcessor.swift */,
+				ED060CF81F9A4D6600F94C32 /* PreviewView.swift */,
+				ED060CF41F9A4D6500F94C32 /* TakePhotoButton.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED25FF731FA3029E008991FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED060CF71F9A4D6600F94C32 /* CameraViewController.swift */,
+				ED060CF51F9A4D6500F94C32 /* PhotoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED25FF741FA303A2008991FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED0FD3371F9E5E2F00F25C10 /* PhotosViewController.swift */,
+				ED0FD3351F9E5E2800F25C10 /* PhotoCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED25FF751FA303AF008991FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED0FD33A1F9E719A00F25C10 /* FishSpeciesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED25FF761FA30440008991FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED4E1CBD1F9B494200DC2542 /* Reachability.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED25FF771FA3044D008991FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED4E1CBC1F9B494200DC2542 /* WebViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED25FF781FA30467008991FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED4639FB1F9A526F007CA57B /* FishPredictor.swift */,
+				ED4639F51F9A51F2007CA57B /* Inception3Net.swift */,
+				ED4639F71F9A51F2007CA57B /* Numbers.swift */,
+				ED4639F61F9A51F2007CA57B /* FishSpecies.swift */,
+				ED46384A1F9A5042007CA57B /* SlimMPSCNN.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ED4639F41F9A50E8007CA57B /* Inception_v3_Network_Params */ = {
@@ -780,11 +840,7 @@
 		ED4639FD1F9A5351007CA57B /* Fish Recognition */ = {
 			isa = PBXGroup;
 			children = (
-				ED4639FB1F9A526F007CA57B /* FishPredictor.swift */,
-				ED4639F51F9A51F2007CA57B /* Inception3Net.swift */,
-				ED4639F71F9A51F2007CA57B /* Numbers.swift */,
-				ED4639F61F9A51F2007CA57B /* FishSpecies.swift */,
-				ED46384A1F9A5042007CA57B /* SlimMPSCNN.swift */,
+				ED25FF781FA30467008991FC /* Model */,
 			);
 			path = "Fish Recognition";
 			sourceTree = "<group>";
@@ -792,8 +848,8 @@
 		ED4E1CC01F9B495600DC2542 /* Web */ = {
 			isa = PBXGroup;
 			children = (
-				ED4E1CBC1F9B494200DC2542 /* WebViewController.swift */,
-				ED4E1CBD1F9B494200DC2542 /* Reachability.swift */,
+				ED25FF771FA3044D008991FC /* View */,
+				ED25FF761FA30440008991FC /* Model */,
 			);
 			path = Web;
 			sourceTree = "<group>";

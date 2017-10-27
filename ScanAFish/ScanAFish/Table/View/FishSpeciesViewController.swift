@@ -39,54 +39,22 @@ class FishSpeciesViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fishSpecies.count
+        return FishSpecies.allCategory.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath)
         
-        cell.textLabel?.text = fishSpecies[indexPath.row]
+        if indexPath.row == 0 {
+            cell.textLabel?.text = ""
+            return cell
+        }
+        
+        cell.textLabel?.text = FishSpecies.allCategory[indexPath.row - 1]
         
         return cell
     }
     
-    let fishSpecies = [
-        "",
-        "apteronotus albifrons",
-        "betta splendens",
-        "carnegiella strigata",
-        "celestichthys margaritatus",
-        "chromobotia macracanthus",
-        "corydoras aeneus",
-        "corydoras duplicareus",
-        "corydoras paleatus",
-        "crossocheilus oblongus",
-        "ctenopoma acutirostre",
-        "goldfish",
-        "gymnocorymbus ternetzi",
-        "hoplosternum thoracatum",
-        "hyphessobrycon amandae",
-        "hyphessobrycon herbertaxelrodi",
-        "hyphessobrycon megalopterus",
-        "hyphessobrycon pulchripinnis",
-        "labeo bicolor",
-        "labidochromis caeruleus",
-        "melanochromis cyaneorhabdos",
-        "melanotaenia boesemani",
-        "mikrogeophagus ramirezi",
-        "neolamprologus buescheri kamakonde",
-        "osteoglossum bicirrhosum",
-        "paracheirodon axelrodi",
-        "paracheirodon innesi",
-        "pethia conchonius",
-        "petitella georgiae",
-        "poecilia sphenops",
-        "puntigrus tetrazona",
-        "rocio octofasciata",
-        "synodontis petricola",
-        "tanichthys albonubes",
-        "tropheus ikola",
-        "xiphophorus helleri"]
 }
 

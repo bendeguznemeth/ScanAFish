@@ -73,7 +73,7 @@ class PhotosViewController: UIViewController, UICollectionViewDataSource, UIColl
             PHImageManager.default().requestImageData(for: asset,
                                                       options: options,
                                                       resultHandler: { data, _, _, _ in
-                                                        destination.image2 = UIImage(data: data!)
+                                                        destination.imageFromPhotoLibrary = UIImage(data: data!)
             })
         }
     }
